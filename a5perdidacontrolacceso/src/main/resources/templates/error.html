@@ -1,0 +1,14 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/base}">
+<head>
+<title>403</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
+<body>
+	<section layout:fragment="header">
+		<div th:replace="fragments/header :: header">&nbsp</div>
+	</section>
+	<section layout:fragment="base" class="row align-items-center">
+		acceso denegado
+	</section>
+</body>

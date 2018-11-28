@@ -1,0 +1,39 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/base}">
+<head>
+<title>Login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
+<body>
+	<section layout:fragment="base" class="row align-items-center">
+		<div class="col-md-4 mx-auto">
+			<div class="card card-login mx-auto mt-5 login">
+				<div class="card-header">Login</div>
+				<div class="card-body">
+					<div th:if="${param.error}" class="alert alert-danger" role="alert">
+						Usuario o contraseña incorrecta
+					</div>
+					<div th:if="${param.sesion}" class="alert alert-primary" role="alert">
+						Sesión cerrada
+					</div>
+					<form action="#" th:action="@{/login}" method="post">
+						<div class="form-group">
+							<div class="form-label-group">
+								<input type="text" id="username" name="username" autocomplete="off"
+									class="form-control" placeholder="Nombre Usuario"
+									required="required" autofocus="autofocus">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-label-group">
+								<input type="password" id="password" name="password" autocomplete="off"
+									class="form-control" placeholder="Password" required="required">
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary btn-block">Login</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cl.tutorial.seguridad.owasp</groupId>
+	<artifactId>toptenvulnerability</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>top ten vulnerability</name>
+	<description>Demos que permiten ejemplificar el top 10 de vulnerabilidades owasp</description>
+
+	<developers>
+		<developer>
+			<email>mail@localhost</email>
+			<organization>FOLIL</organization>
+			<timezone>-3</timezone>
+			<organizationUrl>http://localhost</organizationUrl>
+			<name>Gerardo Garrido</name>
+			<roles>
+				<role>Desarrollador de sistemas</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<organization>
+		<name>FOLIL</name>
+		<url>http://localhost/</url>
+	</organization>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.4.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<!-- configuracion general proyecto y modulos -->
+		<java.version>1.8</java.version>
+		<project.encoding>UTF-8</project.encoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>dd-MM-yyyy HH:mm:ss</maven.build.timestamp.format>
+		<build_version>${project.version}</build_version>
+		<build_number>00001</build_number>
+		<!-- versiones jars adicionales -->
+		<version.bootstrap>4.1.3</version.bootstrap>
+		<version.jquery>3.3.1</version.jquery>
+		<version.fontawesome>5.4.1</version.fontawesome>
+		<version.webjar-locator>0.34</version.webjar-locator>
+		<version.swagger2>2.9.2</version.swagger2>
+		<guava.version>20.0</guava.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- agrega boostrap css con jar -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>bootstrap</artifactId>
+				<version>${version.bootstrap}</version>
+			</dependency>
+			<!-- agrega jquery js con jar -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>jquery</artifactId>
+				<version>${version.jquery}</version>
+			</dependency>
+			<!-- agregar font awsome con jar -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>font-awesome</artifactId>
+				<version>${version.fontawesome}</version>
+			</dependency>
+			<!-- agrega utilitario para urls webjar sin version -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>webjars-locator</artifactId>
+				<version>${version.webjar-locator}</version>
+			</dependency>
+			<!-- version documentacion servicios rest -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${version.swagger2}</version>
+			</dependency>
+			<!-- version documentacion servicios rest ui -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${version.swagger2}</version>
+			</dependency>
+			<!-- cache -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<!-- respositorios spring -->
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<!-- respositorios plugins spring -->
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot-local</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone-local</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<modules>
+		<module>a1inyeccion</module>
+		<module>a2autenticacion</module>
+		<module>a4xxe</module>
+		<module>a5perdidacontrolacceso</module>
+		<module>a7crosssitescripting</module>
+		<module>a8insecuredeserialization</module>
+	</modules>
+</project>

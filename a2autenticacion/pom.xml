@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cl.tutorial.seguridad.owasp</groupId>
+		<artifactId>toptenvulnerability</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>a2autenticacion</artifactId>
+	<packaging>pom</packaging>
+	<name>A2 quiebres de autenticacion</name>
+	<description>Demos autenticaciones debiles y fuertes</description>
+	<modules>
+		<module>a2autenticacioninsegura</module>
+		<module>a2autenticacionsegura</module>
+	</modules>
+</project>

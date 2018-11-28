@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cl.tutorial.seguridad.owasp</groupId>
+		<artifactId>toptenvulnerability</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>a4xxe</artifactId>
+	<packaging>pom</packaging>
+	<name>A4 Entidades externas xml</name>
+	<description>A4 ejemplifica via servicios vulneravilidad</description>
+
+	<modules>
+		<module>a4xxeseguro</module>
+		<module>a44xxeinseguro</module>
+	</modules>
+</project>

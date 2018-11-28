@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div layout:fragment="header"  >&nbsp</div>
+	<div id="wrapper">
+		<div id="content-wrapper">
+        	<div class="container-fluid">
+				<div layout:fragment="base">&nbsp</div>
+			</div>
+		</div>
+		<div th:replace="fragments/footer :: footer">&nbsp</div>
+	</div>
+	
+	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" ></script>
+</body>
+</html>

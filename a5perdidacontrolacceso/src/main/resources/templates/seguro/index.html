@@ -1,0 +1,60 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/base}">
+<head>
+<title>Inicio</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+</head>
+<body>
+	<section layout:fragment="header">
+		<div th:replace="fragments/header :: header">&nbsp</div>
+	</section>
+	<section layout:fragment="base" class="row align-items-center">
+		<div class="col-md-8 mx-auto">
+			<div class="card card-login mx-auto mt-4  login">
+				<div class="card-header">Info Usuario</div>
+				<div class="card-body">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Nombre usuario</th>
+								<th scope="col">Roles</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="rol : ${roles}">
+								<td th:text="${usuario}"></td>
+								<td th:text="${rol}"></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<form id="cerrarsesion" action="#" th:action="@{/logout}"
+						method="post">
+						<button type="submit" class="btn btn-primary btn-block">Cerrar
+							Sesión</button>
+					</form>
+
+					<h2>Usuarios</h2>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">usuario</th>
+								<th scope="col">id</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="u : ${usuarios}">
+								<td scope="row" th:text="${u.id}"></td>
+								<td th:text="${u.username}"></td>
+								<td><a th:if="${u.username == usuario }"
+									th:href="@{/seguro/editar/{id}(id=${u.id})}"
+									class="btn btn-secondary">editar</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>

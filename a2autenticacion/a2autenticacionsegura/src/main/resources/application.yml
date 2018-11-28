@@ -1,0 +1,58 @@
+server:
+  port: 8083
+  servlet:
+    session:
+      cookie:
+        max-age: 1800
+      timeout: 1800
+  ssl:
+    enabled: ${SSL_ENABLED:true}
+    key-store-password: Sonda.2018
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-alias: tomcat
+    
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        web-allow-others: true
+        trace: true
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:autenticacionsegura;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: null
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+  thymeleaf:
+    check-template: true
+    check-template-location: true
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: HTML
+    encoding: UTF-8
+    enabled: true
+    cache: false
+    servlet:
+      content-type: text/html
+  resources:
+    cache:
+      period: 0
+      cachecontrol:
+        max-age: 0m
+    static-locations:
+    - classpath:/static/
+logging:
+  pattern:
+    console: '%-5level %logger : %msg%n'
